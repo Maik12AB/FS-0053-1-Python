@@ -129,5 +129,41 @@ if r == "No es posible vender 0 productos o productos negativos.":
 else:
     print("E", end="")
 
+print()
+
+farma = Farmacia("Farmacia SpA", 1_000)
+
+farma.ingresar_producto("Prod 1", 10, 10)
+p1 = farma.lista_productos[0]
+if p1.nombre == "Prod 1" and p1.precio == 10 and p1.stock == 10:
+    print(".", end="")
+else:
+    print("E", end="")
+
+farma.ingresar_producto("Prod 2", 10, -1)
+p2 = farma.lista_productos[1]
+if p2.nombre == "Prod 2" and p2.precio == 10 and p2.stock == 0:
+    print(".", end="")
+else:
+    print("E", end="")
+
+farma.ingresar_producto("Prod 3", 10, 5)
+p3 = farma.lista_productos[2]
+if p3.nombre == "Prod 3" and p3.precio == 10 and p3.stock == 5:
+    print(".", end="")
+else:
+    print("E", end="")
+
+r = farma.realizar_venta("Prod 1", 3)
+if r == "Venta completada":
+    print(".", end="")
+else:
+    print("E", end="")
+
+r = farma.realizar_venta("Prod 1", 4)
+if r == "No se puede solicitar más de 3 unidades":
+    print(".", end="")
+else:
+    print("E", end="")
 
 print()
