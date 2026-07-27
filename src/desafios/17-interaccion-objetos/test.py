@@ -1,38 +1,5 @@
 from producto import Producto
-from tienda import Minimarket, Restaurante, Supermercado, Farmacia
-
-mini = Minimarket("La Serena Market SpA", 1_000)
-
-mini.ingresar_producto("Prod 1", 10, 15)
-
-p1 = mini.lista_productos[0]
-if p1.nombre == "Prod 1" and p1.precio == 10 and p1.stock == 15:
-    print(".", end="")
-else:
-    print("E", end="")
-
-mini.ingresar_producto("Prod 2", 100, 150)
-p2 = mini.lista_productos[1]
-if p2.nombre == "Prod 2" and p2.precio == 100 and p2.stock == 150:
-    print(".", end="")
-else:
-    print("E", end="")
-
-mini.ingresar_producto("Prod 1", 100, 15)
-p3 = mini.lista_productos[0]
-if p3.nombre == "Prod 1" and p3.precio == 10 and p3.stock == 30:
-    print(".", end="")
-else:
-    print("E", end="")
-
-mini.ingresar_producto("Prod 3", 100, -1)
-p4 = mini.lista_productos[2]
-if p4.nombre == "Prod 3" and p4.precio == 100 and p4.stock == 0:
-    print(".", end="")
-else:
-    print("E", end="")
-
-print()
+from tienda import Restaurante, Supermercado, Farmacia
 
 rest = Restaurante("Restaurante SpA", 1_000)
 

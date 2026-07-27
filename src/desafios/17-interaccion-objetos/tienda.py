@@ -38,14 +38,6 @@ class Tienda(ABC):
         pass
 
 
-class Minimarket(Tienda):
-
-    def listar_productos(self):
-        pass
-
-    def realizar_venta(self):
-        pass
-
 class Restaurante(Tienda):
     def listar_productos(self):
         salida = ""
