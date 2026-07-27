@@ -87,6 +87,20 @@ if p3.nombre == "Prod 3" and p3.precio == 10 and p3.stock == 5:
 else:
     print("E", end="")
 
+super.ingresar_producto("Prod 4", 10, 9)
+p4 = super.lista_productos[3]
+if p4.nombre == "Prod 4" and p4.precio == 10 and p4.stock == 9:
+    print(".", end="")
+else:
+    print("E", end="")
+
+super.ingresar_producto("Prod 5", 10, 11)
+p5 = super.lista_productos[4]
+if p5.nombre == "Prod 5" and p5.precio == 10 and p5.stock == 11:
+    print(".", end="")
+else:
+    print("E", end="")
+
 r = super.realizar_venta("Prod 1", 1)
 if r == "Venta completada":
     print(".", end="")
@@ -154,6 +168,13 @@ if p3.nombre == "Prod 3" and p3.precio == 10 and p3.stock == 5:
 else:
     print("E", end="")
 
+farma.ingresar_producto("Prod 4", 15_001, 5)
+p4 = farma.lista_productos[3]
+if p4.nombre == "Prod 4" and p4.precio == 15_001 and p4.stock == 5:
+    print(".", end="")
+else:
+    print("E", end="")
+
 r = farma.realizar_venta("Prod 1", 3)
 if r == "Venta completada":
     print(".", end="")
@@ -165,5 +186,61 @@ if r == "No se puede solicitar más de 3 unidades":
     print(".", end="")
 else:
     print("E", end="")
+
+print()
+
+# Probando salida de listar_productos()
+# Retorna un texto de salida
+
+salida_rest = rest.listar_productos()
+
+esperado_rest = """- Prod 1 | $10
+- Prod 2 | $10"""
+
+# Normalizamos ambas salidas para quitar espacios y saltos de línea
+# Obtenemos una lista
+salida_norm = [line.strip() for line in salida_rest.strip().splitlines()]
+esperado_norm = [line.strip() for line in esperado_rest.strip().splitlines()]
+
+if salida_norm == esperado_norm:
+    print(".", end="")
+else:
+    print("E", end="")
+
+# Supermercado
+salida_super = super.listar_productos()
+
+esperado_super = """- Prod 1 | $10 | Stock: 0 | Pocos productos disponibles
+- Prod 2 | $10 | Stock: 0 | Pocos productos disponibles
+- Prod 3 | $10 | Stock: 0 | Pocos productos disponibles
+- Prod 4 | $10 | Stock: 9 | Pocos productos disponibles
+- Prod 5 | $10 | Stock: 11"""
+
+salida_norm = [line.strip() for line in salida_super.strip().splitlines()]
+esperado_norm = [line.strip() for line in esperado_super.strip().splitlines()]
+
+if salida_norm == esperado_norm:
+    print(".", end="")
+else:
+    print("E", end="")
+
+# Farmacia
+salida_farma = farma.listar_productos()
+
+esperado_farma = """- Prod 1 | $10
+- Prod 2 | $10
+- Prod 3 | $10
+- Prod 4 | $15001 | Envío gratis al solicitar este producto"""
+
+salida_norm = [line.strip() for line in salida_farma.strip().splitlines()]
+esperado_norm = [line.strip() for line in esperado_farma.strip().splitlines()]
+
+if salida_norm == esperado_norm:
+    print(".", end="")
+else:
+    print("E", end="")
+
+
+
 
 print()

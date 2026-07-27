@@ -48,10 +48,10 @@ class Minimarket(Tienda):
 
 class Restaurante(Tienda):
     def listar_productos(self):
-            salida = ""
-            for producto in self.lista_productos:
-                salida += f"- {producto.nombre} | ${producto.precio}\n"
-            return salida
+        salida = ""
+        for producto in self.lista_productos:
+            salida += f"- {producto.nombre} | ${producto.precio}\n"
+        return salida
 
     def realizar_venta(self, nombre: str, cantidad: int):
 
