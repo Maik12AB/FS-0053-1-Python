@@ -9,6 +9,10 @@ class Tienda(ABC):
         self.__delivery = delivery
         self.lista_productos = []
 
+    @property
+    def nombre(self):
+        return self.__nombre
+
     def ingresar_producto(self, nombre, precio, stock = 0):
 
         producto_nuevo = Producto(nombre, precio, stock)

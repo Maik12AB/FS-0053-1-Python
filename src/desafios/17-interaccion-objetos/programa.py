@@ -6,15 +6,6 @@ def menu_principal():
     print("2.Continuar")
     return int(input(".> "))
 
-def menu_ventas():
-    print("Listar y Vender")
-    print("¿Que desa hacer?")
-    print("1.Listar productos")
-    print("2.Vender productos")
-    print("3.Salir")
-    return int(input(".> "))
-
-
 # if tienda_nueva == 1:
 #     nombre = input("Ingrese el nombre de la tienda: ")
 #     delivery = input("Ingrese el costo del delivery: ")
@@ -100,6 +91,12 @@ def menu_inicial():
     print("9. Salir")
     return input(".> ")
 
+def menu_ventas():
+    print("¿Que desa hacer?")
+    print("1. Listar productos")
+    print("2. Vender productos")
+    print("9. Salir")
+    return input(".> ")
 
 def main():
 
@@ -154,9 +151,21 @@ def main():
         if s.lower() == "n":
             break
 
+    # Menú operaciones
+    while True:
+        print()
+        print( tienda.nombre )
+        print( '-' * len(tienda.nombre), "\n" )
 
-    # Listar productos
-    print( tienda.listar_productos() )
+        opcion = menu_ventas()
+
+        if opcion == '1':
+            print( tienda.listar_productos() )
+        elif opcion == '2':
+            # Vender
+            ...
+        elif opcion == '9':
+            break
 
 
 
