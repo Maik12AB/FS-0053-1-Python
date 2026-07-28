@@ -80,8 +80,14 @@ def main():
             print( tienda.listar_productos() )
         elif opcion == '2':
             # Vender
-            # r = super.realizar_venta("Prod 1", 1)
-            ...
+            # 
+            print("Realizando venta")
+            prod = input("Ingrese nombre del producto: ")
+            cant = int(input("Ingrese las unidades solicitadas: "))
+
+            r = tienda.realizar_venta(prod, cant)
+            print(r)
+            input("Presione una tecla para continuar...")
         elif opcion == '9':
             break
 
