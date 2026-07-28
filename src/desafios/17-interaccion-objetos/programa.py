@@ -135,6 +135,30 @@ def main():
     else:
         tienda = Farmacia(nombre, delivery)
 
+    # Ingresar productos
+    print("Ingresar productos")
+    print("------------------")
+    i = 0
+    while True:
+        stock = 0
+        i += 1
+        print( f"Ingresar producto {i}")
+        nombre = input("Ingrese el nombre: ")
+        precio = int(input("Ingrese el precio: "))
+        if tipo_tienda not in ('1'):
+            stock = int(input("Ingrese el stock: "))
+
+        tienda.ingresar_producto(nombre, precio, stock)
+
+        s = input("¿Desea agregar más productos? [s/n]")
+        if s.lower() == "n":
+            break
+
+
+    # Listar productos
+    print( tienda.listar_productos() )
+
+
 
 if __name__ == "__main__":
     main()
