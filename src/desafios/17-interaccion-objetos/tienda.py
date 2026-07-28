@@ -9,6 +9,10 @@ class Tienda(ABC):
         self.__delivery = delivery
         self.lista_productos = []
 
+    @property
+    def nombre(self):
+        return self.__nombre
+
     def ingresar_producto(self, nombre, precio, stock = 0):
 
         producto_nuevo = Producto(nombre, precio, stock)
@@ -38,20 +42,12 @@ class Tienda(ABC):
         pass
 
 
-class Minimarket(Tienda):
-
-    def listar_productos(self):
-        pass
-
-    def realizar_venta(self):
-        pass
-
 class Restaurante(Tienda):
     def listar_productos(self):
-            salida = ""
-            for producto in self.lista_productos:
-                salida += f"- {producto.nombre} | ${producto.precio}\n"
-            return salida
+        salida = ""
+        for producto in self.lista_productos:
+            salida += f"- {producto.nombre} | ${producto.precio}\n"
+        return salida
 
     def realizar_venta(self, nombre: str, cantidad: int):
 
@@ -102,25 +98,24 @@ class Farmacia(Tienda):
                 linea += " | Envío gratis al solicitar este producto"
             salida += linea + "\n"
         return salida
-    def realizar_venta(self):
-        nombre = input("Producto a vender: ")
-        cantidad = int(input("Cantidad: "))
 
-        for incide, producto in enumerate(self.lista_productos):
-            if producto.nombre == nombre:
+    def realizar_venta(self, nombre: str, cantidad: int):
 
-                if cantidad > 3:
-                    print("En farmacia no se pueden vender más de 3 unidades.")
-                    break
+        if cantidad > 3:
+            return "No se puede solicitar más de 3 unidades"
 
-                if cantidad <= 0:
-                    print("No es posible vender 0 productos o produgtos negativos.")
-                    break
+        venta = Producto(nombre, 0, cantidad)
+        i = self.buscar_producto(venta)
 
-                if producto.stock == 0:
-                    print("No hay stock.")
-                    break
+        if i is None:
+            return "Producto no existe"
+        elif self.lista_productos[i].stock == 0:
+            return "No es posible vender 0 productos o productos negativos."
+        elif self.lista_productos[i].stock < cantidad:
+            aux = self.lista_productos[i].stock
+            self.lista_productos[i].stock = 0
+            return f"Venta completada. Solo se vendieron {aux} unidades"
 
-                self.lista_productos[incide] = producto - cantidad
-                return self.lista_productos
-        print("Producto no encontrado")
+        self.lista_productos[i] = self.lista_productos[i] - venta
+        return "Venta completada"
+
