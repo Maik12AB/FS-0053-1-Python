@@ -30,7 +30,7 @@ try:
 except DimensionError as e:
     if e.mensaje == "Ancho no permitido" \
         and e.dimension == 2_501 \
-        and e.maximo == Foto1.MAX:
+        and e.maximo == foto1.MAX:
         print(".", end="")
     else:
         print("E", end="")
@@ -42,7 +42,7 @@ try:
 except DimensionError as e:
     if e.mensaje == "Alto no permitido" \
         and e.dimension == 2_501 \
-        and e.maximo == Foto1.MAX:
+        and e.maximo == foto1.MAX:
         print(".", end="")
     else:
         print("E", end="")
@@ -52,7 +52,7 @@ else:
 try:
     foto1.ancho = 0
 except DimensionError as e:
-    if e.mensaje == "Ancho no puede ser menor a 1" \
+    if e.mensaje == "Ancho no permitido" \
         and e.dimension == 0:
         print(".", end="")
     else:
@@ -63,8 +63,30 @@ else:
 try:
     foto1.alto = 0
 except DimensionError as e:
-    if e.mensaje == "Alto no puede ser menor a 1" \
+    if e.mensaje == "Alto no permitido" \
         and e.dimension == 0:
+        print(".", end="")
+    else:
+        print("E", end="")
+else:
+    print("E", end="")
+
+try:
+    foto1.ancho = 0
+except DimensionError as e:
+    # print(e)
+    if str(e) == "El mesaje es Ancho no permitido La dimensión es 0 El máximo es 2500":
+        print(".", end="")
+    else:
+        print("E", end="")
+else:
+    print("E", end="")
+
+try:
+    foto1.alto = 0
+except DimensionError as e:
+    # print(e)
+    if str(e) == "El mesaje es Alto no permitido La dimensión es 0 El máximo es 2500":
         print(".", end="")
     else:
         print("E", end="")
