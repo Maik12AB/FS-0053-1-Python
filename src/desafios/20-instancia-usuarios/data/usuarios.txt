@@ -8,3 +8,4 @@
 {"nombre": "Robena", "apellido": "Selcraig", "email": "rselcraig7@jugem.jp", "genero": Female}
 {"nombre": "Llywellyn", "apellido": "Hendrickson", "email": "lhendrickson8@usgs.gov", "genero": "Genderqueer"}
 {"nombre": "Inger", "apellido": "Baldcock", "email": "ibaldcock9@alibaba.com", "genero": "Female"}
+{"apellido": "Soto", "nombre": "Carlos", "email": "ibaldcock9@alibaba.com", "genero": "Female"}

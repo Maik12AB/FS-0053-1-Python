@@ -4,3 +4,6 @@ class Usuario():
         self.apellidos = apellido
         self.email = email
         self.genero = genero
+
+    def __str__(self) -> str:
+        return self.nombre + " " + self.apellidos
