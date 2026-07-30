@@ -17,6 +17,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
+# Instalar OpenCode
+RUN curl -fsSL https://opencode.ai/install | bash \
+    && /root/.opencode/bin/opencode --version
+
+ENV PATH="/root/.opencode/bin:${PATH}"
+
+# Requirements.txt
 COPY requirements.txt .
 
 RUN python -m pip install --upgrade pip setuptools wheel \
