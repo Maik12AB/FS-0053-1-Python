@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     htop \
     build-essential \
     ca-certificates \
+    postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar OpenCode
@@ -24,7 +25,7 @@ RUN curl -fsSL https://opencode.ai/install | bash \
 ENV PATH="/root/.opencode/bin:${PATH}"
 
 # Requirements.txt
-COPY requirements.txt .
+COPY ./.devcontainer/requirements.txt .
 
 RUN python -m pip install --upgrade pip setuptools wheel \
     && pip install --no-cache-dir -r requirements.txt
