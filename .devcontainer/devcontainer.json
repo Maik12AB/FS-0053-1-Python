@@ -1,11 +1,11 @@
 {
   "name": "fs-0053-1-dev",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+  "service": "devcontainer",
   "workspaceFolder": "/app",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+  "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
       "settings": {
@@ -33,10 +33,6 @@
       ]
     }
   },
-  "runArgs": [
-    "--name",
-    "fs-0053-1-dev"
-  ],
   "postCreateCommand": "mkdir -p /app/src /app/tests && python --version && pip --version",
   "remoteUser": "root"
 }
