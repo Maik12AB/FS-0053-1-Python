@@ -20,3 +20,4 @@ if __name__ == "__main__":
 # Flujo de aplicación web
 # usuario -> navegador -> servidor web -> python -> respuesta -> navegador
 
+# python -m venv nombre_del_entorno
