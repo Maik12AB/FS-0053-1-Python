@@ -6,6 +6,8 @@ services:
     container_name: fs-0053-1-dev
     volumes:
       - ..:/app:cached
+    ports:
+      - "8000:8000"
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
