@@ -11,3 +11,7 @@ ingresar:
 postgres:
 	clear
 	PGPASSWORD=postgres psql -h postgres -U postgres -d postgres
+
+django-inicio:
+	clear
+	cd django_inicio && python manage.py runserver 0.0.0.0:8000
