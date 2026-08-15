@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-from cursos.views import listado_cursos
+from cursos.views import listado_cursos, detalles_cursos
 
 def hello(request):
     # Podemos escribir directamente en la terminal
@@ -52,5 +52,6 @@ urlpatterns = [
     path('', hello),
     path('inicio/', inicio_html),
     path('cursos/', listado_cursos),
+    path('cursos/<int:id>/', detalles_cursos),
     path('info-http/', info_http),
 ]

@@ -32,6 +32,16 @@ def listado_cursos(request):
     # Retornando HTML
     return HttpResponse(algo)
 
+def detalles_cursos(request, id):
+    cursos = get_cursos()
+    r = 'Curso no encontrado'
+
+    for curso in cursos:
+        if curso['id'] == id:
+            r = f"{curso['id']} - {curso['nombre']}"
+            break
+
+    return HttpResponse(r)
 
 """
 Ciclo de vida de la petición Http
