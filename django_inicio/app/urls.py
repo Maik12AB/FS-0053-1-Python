@@ -52,6 +52,6 @@ urlpatterns = [
     path('', hello),
     path('inicio/', inicio_html),
     path('cursos/', listado_cursos),
-    path('cursos/<int:id>/', detalles_cursos),
+    path('cursos/<uuid:uuid>/', detalles_cursos),
     path('info-http/', info_http),
 ]
