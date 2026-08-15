@@ -15,16 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.db.migrations import serializer
 from django.urls import path
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 
-def get_cursos():
-    return [
-        {"id": 1, "nombre": "Python"},
-        {"id": 2, "nombre": "SQL"},
-        {"id": 3, "nombre": "Django"},
-    ]
+from cursos.views import listado_cursos
 
 def hello(request):
     # Podemos escribir directamente en la terminal
@@ -40,28 +34,6 @@ def inicio_html(request):
     algo += '<li>Que tal!</li>'
     algo += '</ul>'
 
-    return HttpResponse(algo)
-
-def listado_cursos(request):
-    cursos = get_cursos()
-    print(cursos)
-
-    algo = '<h1>Listado de cursos</h1>'
-    algo += '<ul>'
-
-    for curso in cursos:
-        algo += f'<li>{curso["id"]} - {curso["nombre"]}</li>'
-        print()
-
-    algo += '</ul>'
-
-    # Retornando un texto
-    # return HttpResponse("Listado de cursos")
-
-    # Retornar un json
-    #return JsonResponse(cursos, safe=False)
-
-    # Retornando HTML
     return HttpResponse(algo)
 
 
