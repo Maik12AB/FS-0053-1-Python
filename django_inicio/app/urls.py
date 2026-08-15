@@ -36,6 +36,15 @@ def inicio_html(request):
 
     return HttpResponse(algo)
 
+# Entendiendo request
+def info_http(request):
+    print( '-' * 20)
+    print(request)
+    print(request.method)
+    print(request.path)
+    print( '-' * 20)
+
+    return HttpResponse("Hello, Info Http!")
 
 # [TODO] crear grupos de path
 urlpatterns = [
@@ -43,4 +52,5 @@ urlpatterns = [
     path('', hello),
     path('inicio/', inicio_html),
     path('cursos/', listado_cursos),
+    path('info-http/', info_http),
 ]
