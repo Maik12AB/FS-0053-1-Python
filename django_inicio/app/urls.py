@@ -18,7 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
+from cursos.views import listado_cursos, detalles_cursos
+
 def hello(request):
+    # Podemos escribir directamente en la terminal
+    # del servidor
+    print('Hola mundo desde la terminal')
     return HttpResponse("Hello, world!")
 
 def inicio_html(request):
@@ -31,9 +36,22 @@ def inicio_html(request):
 
     return HttpResponse(algo)
 
+# Entendiendo request
+def info_http(request):
+    print( '-' * 20)
+    print(request)
+    print(request.method)
+    print(request.path)
+    print( '-' * 20)
 
+    return HttpResponse("Hello, Info Http!")
+
+# [TODO] crear grupos de path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello),
     path('inicio/', inicio_html),
+    path('cursos/', listado_cursos),
+    path('cursos/<uuid:uuid>/', detalles_cursos),
+    path('info-http/', info_http),
 ]
