@@ -17,8 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
-
-from cursos.views import listado_cursos, detalles_cursos
+from django.urls import include
 
 def hello(request):
     # Podemos escribir directamente en la terminal
@@ -51,7 +50,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello),
     path('inicio/', inicio_html),
-    path('cursos/', listado_cursos),
-    path('cursos/<uuid:uuid>/', detalles_cursos),
     path('info-http/', info_http),
+    path('cursos/', include("cursos.urls"))
 ]
