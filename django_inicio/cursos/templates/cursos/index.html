@@ -11,7 +11,9 @@
     <ul>
         {% for curso in cursos %}
             <li>
-                {{ curso.id }} - {{ curso.nombre }}
+                <a href="/cursos/{{ curso.uuid }}">
+                    {{ curso.id }} - {{ curso.nombre }}
+                </a>
             </li>
         {% endfor %}
     </ul>
