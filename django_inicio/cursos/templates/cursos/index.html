@@ -9,10 +9,15 @@
     <h1>Listado de cursos</h1>
     <h3>Desde Template</h3>
     <ul>
-        <li>Python - temp</li>
-        <li>SQL - temp</li>
-        <li>Django - temp</li>
+        {% for curso in cursos %}
+            <li>
+                {{ curso.id }} - {{ curso.nombre }}
+            </li>
+        {% endfor %}
     </ul>
 
+    <hr>
+    {{ prueba }} <br>
+    {{ cursos }}
 </body>
 </html>

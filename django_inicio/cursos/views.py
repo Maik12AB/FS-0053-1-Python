@@ -13,9 +13,15 @@ def get_cursos():
 def listado_cursos(request):
     cursos = get_cursos()
 
+    context = {
+        'cursos': cursos,
+        'prueba': "Hola"
+    }
+
     return render(
         request,
-        'cursos/index.html'
+        'cursos/index.html',
+        context
     )
 
 def detalles_cursos(request, uuid):
