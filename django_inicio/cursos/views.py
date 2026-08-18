@@ -27,14 +27,22 @@ def listado_cursos(request):
 def detalles_cursos(request, uuid):
     print(uuid)
     cursos = get_cursos()
-    r = 'Curso no encontrado'
+    r = None
 
     for curso in cursos:
         if str(curso['uuid']) == str(uuid):
-            r = f"{curso['uuid']} - {curso['nombre']}"
+            r = curso
             break
 
-    return HttpResponse(r)
+    context = {
+        'detalle': r,
+    }
+
+    return render(
+        request,
+        'cursos/detalle.html',
+        context
+    )
 
 """
 Ciclo de vida de la petición Http
