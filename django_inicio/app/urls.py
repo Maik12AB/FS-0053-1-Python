@@ -51,5 +51,7 @@ urlpatterns = [
     path('', hello),
     path('inicio/', inicio_html),
     path('info-http/', info_http),
-    path('cursos/', include("cursos.urls"))
+    path('cursos/', include("cursos.urls")),
+    # API REST
+    path('api/', include("api.urls")),
 ]
