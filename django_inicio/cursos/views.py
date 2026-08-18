@@ -12,25 +12,11 @@ def get_cursos():
 
 def listado_cursos(request):
     cursos = get_cursos()
-    print(cursos)
 
-    algo = '<h1>Listado de cursos (App Cursos)</h1>'
-    algo += '<ul>'
-
-    for curso in cursos:
-        algo += f'<li>{curso["id"]} - {curso["nombre"]}</li>'
-        print()
-
-    algo += '</ul>'
-
-    # Retornando un texto
-    # return HttpResponse("Listado de cursos")
-
-    # Retornar un json
-    #return JsonResponse(cursos, safe=False)
-
-    # Retornando HTML
-    return HttpResponse(algo)
+    return render(
+        request,
+        'cursos/index.html'
+    )
 
 def detalles_cursos(request, uuid):
     print(uuid)
