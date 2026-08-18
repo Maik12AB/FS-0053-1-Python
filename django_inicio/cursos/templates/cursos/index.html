@@ -4,22 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de cursos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Listado de cursos</h1>
-    <h3>Desde Template</h3>
-    <ul>
-        {% for curso in cursos %}
-            <li>
-                <a href="/cursos/{{ curso.uuid }}">
-                    {{ curso.id }} - {{ curso.nombre }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container mt-4">
+        <h1>Listado de cursos</h1>
+        <h3>Desde Template</h3>
 
-    <hr>
-    {{ prueba }} <br>
-    {{ cursos }}
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <body>
+                {% for curso in cursos %}
+                    <tr>
+                        <td>{{ curso.id }}</td>
+                        <td>{{ curso.nombre }}</td>
+                        <td>
+                            <a href="/cursos/{{ curso.uuid }}">
+                                Detalle
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </body>
+        </table>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
