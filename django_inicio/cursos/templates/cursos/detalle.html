@@ -6,10 +6,19 @@
     <title>Detalle de curso</title>
 </head>
 <body>
-    <h1>Detalle de curso {{detalle.nombre }}</h1>
 
-    <p><b>ID:</b> {{detalle.id }}</p>
-    <p><b>UUID:</b> {{detalle.uuid }}</p>
+    {% if detalle %}
+
+        <h1>Detalle de curso {{detalle.nombre }}</h1>
+
+        <p><b>ID:</b> {{detalle.id }}</p>
+        <p><b>UUID:</b> {{detalle.uuid }}</p>
+
+    {% else %}
+
+        <p>Curso no encontrado</p>
+
+    {% endif %}
 
     <a href="/cursos/">Volver</a>
 
