@@ -12,37 +12,37 @@ def get_cursos():
 
 def listado_cursos(request):
     cursos = get_cursos()
-    print(cursos)
 
-    algo = '<h1>Listado de cursos (App Cursos)</h1>'
-    algo += '<ul>'
+    context = {
+        'cursos': cursos,
+        'prueba': "Hola"
+    }
 
-    for curso in cursos:
-        algo += f'<li>{curso["id"]} - {curso["nombre"]}</li>'
-        print()
-
-    algo += '</ul>'
-
-    # Retornando un texto
-    # return HttpResponse("Listado de cursos")
-
-    # Retornar un json
-    #return JsonResponse(cursos, safe=False)
-
-    # Retornando HTML
-    return HttpResponse(algo)
+    return render(
+        request,
+        'cursos/index.html',
+        context
+    )
 
 def detalles_cursos(request, uuid):
     print(uuid)
     cursos = get_cursos()
-    r = 'Curso no encontrado'
+    r = None
 
     for curso in cursos:
         if str(curso['uuid']) == str(uuid):
-            r = f"{curso['uuid']} - {curso['nombre']}"
+            r = curso
             break
 
-    return HttpResponse(r)
+    context = {
+        'detalle': r,
+    }
+
+    return render(
+        request,
+        'cursos/detalle.html',
+        context
+    )
 
 """
 Ciclo de vida de la petición Http
