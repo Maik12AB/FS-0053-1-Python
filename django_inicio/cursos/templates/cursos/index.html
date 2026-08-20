@@ -16,7 +16,7 @@
                 <th>Acciones</th>
             </tr>
         </thead>
-        <body>
+        <tbody>
             {% for curso in cursos %}
                 <tr>
                     <td>{{ curso.id }}</td>
@@ -28,6 +28,6 @@
                     </td>
                 </tr>
             {% endfor %}
-        </body>
+        </tbody>
     </table>
 {% endblock %}
