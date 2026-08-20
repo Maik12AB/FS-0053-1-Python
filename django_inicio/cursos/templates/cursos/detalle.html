@@ -1,5 +1,10 @@
 {% extends 'cursos/base.html' %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/cursos/">Cursos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalles del curso</li>
+{% endblock %}
+
 {% block context %}
 
     <div class="card">
