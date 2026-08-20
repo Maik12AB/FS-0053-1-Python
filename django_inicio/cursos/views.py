@@ -44,6 +44,15 @@ def detalles_cursos(request, uuid):
         context
     )
 
+def crear_cursos(request):
+    print( 'Crear cursos' )
+
+    return render(
+        request,
+        'cursos/crear.html'
+    )
+
+
 """
 Ciclo de vida de la petición Http
 ---------------------------------
