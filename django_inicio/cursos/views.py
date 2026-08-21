@@ -1,5 +1,5 @@
 import uuid
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.http import HttpResponse, JsonResponse
@@ -62,6 +62,8 @@ def crear_cursos(request):
         }
 
         cursos.append( nuevo )
+
+        return redirect('/cursos/')
 
     return render(
         request,
