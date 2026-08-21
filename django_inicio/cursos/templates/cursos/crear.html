@@ -1,0 +1,41 @@
+{% extends 'cursos/base.html' %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/cursos/">Cursos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Lista de cursos</li>
+{% endblock %}
+
+{% block context %}
+<div class="card">
+    <div class="card-header m-0 p-0">
+        <div class="containerfluid d-flex justify-content-between align-items-center">
+            <h1 class="card-title">Crear curso</h1>
+
+
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-floating mb-3">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="nombreCursoInput"
+                    name="nombre_curso"
+                    placeholder="Nombre del curso"
+                >
+                <label for="nombreCursoInput" class="form-label">Nombre del curso</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Crear curso
+            </button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
