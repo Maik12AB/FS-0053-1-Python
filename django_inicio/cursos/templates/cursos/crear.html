@@ -16,12 +16,15 @@
     </div>
 
     <div class="card-body">
-        <form>
+        <form method="post">
+            {% csrf_token %}
+
             <div class="form-floating mb-3">
                 <input
                     type="text"
                     class="form-control"
                     id="nombreCursoInput"
+                    name="nombre_curso"
                     placeholder="Nombre del curso"
                 >
                 <label for="nombreCursoInput" class="form-label">Nombre del curso</label>

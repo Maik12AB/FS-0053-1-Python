@@ -47,6 +47,10 @@ def detalles_cursos(request, uuid):
 def crear_cursos(request):
     print( 'Crear cursos' )
 
+    if request.method == 'POST':
+        nombre_curso = request.POST.get('nombre_curso', None)
+        print( nombre_curso )
+
     return render(
         request,
         'cursos/crear.html'
