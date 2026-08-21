@@ -1,3 +1,4 @@
+import uuid
 from django.shortcuts import render
 
 # Create your views here.
@@ -50,8 +51,17 @@ def crear_cursos(request):
     print( 'Crear cursos' )
 
     if request.method == 'POST':
+        id_curso = len( cursos ) + 1
         nombre_curso = request.POST.get('nombre_curso', None)
-        print( nombre_curso )
+        uuid_curso = str(uuid.uuid4())
+
+        nuevo = {
+            'id': id_curso,
+            'nombre': nombre_curso,
+            'uuid': uuid_curso
+        }
+
+        cursos.append( nuevo )
 
     return render(
         request,
