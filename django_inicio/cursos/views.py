@@ -54,17 +54,11 @@ def crear_cursos(request):
     print( 'Crear cursos' )
 
     if request.method == 'POST':
-        id_curso = len( cursos ) + 1
         nombre_curso = request.POST.get('nombre_curso', None)
-        uuid_curso = str(uuid.uuid4())
 
-        nuevo = {
-            'id': id_curso,
-            'nombre': nombre_curso,
-            'uuid': uuid_curso
-        }
-
-        cursos.append( nuevo )
+        Cursos.objects.create(
+            nombre = nombre_curso,
+        )
 
         messages.success(request, "Curso creado.")
 
