@@ -58,6 +58,35 @@ def crear_cursos(request):
         'cursos/crear.html'
     )
 
+def editar_cursos(request, parametro_uuid):
+
+    _cursos = None
+
+    try:
+        _cursos = Cursos.objects.get( uuid=parametro_uuid )
+    except Cursos.DoesNotExist:
+        print( f"El curso no existe {parametro_uuid}" )
+
+    if request.method == 'POST' and _cursos:
+        _cursos.nombre = request.POST.get('nombre_curso', None)
+
+        _cursos.save()
+
+        messages.success(request, "Curso actualizado")
+
+        return redirect('/cursos/')
+
+
+    context = {
+        'detalle': _cursos,
+    }
+
+    return render(
+        request,
+        'cursos/editar.html',
+        context
+    )
+
 
 """
 Ciclo de vida de la petición Http
