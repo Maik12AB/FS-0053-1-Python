@@ -6,5 +6,5 @@ from cursos.views import listado_cursos, detalles_cursos, crear_cursos
 urlpatterns = [
     path('', listado_cursos),
     path('crear/', crear_cursos),
-    path('<uuid:uuid>/', detalles_cursos),
+    path('<uuid:parametro_uuid>/', detalles_cursos),
 ]

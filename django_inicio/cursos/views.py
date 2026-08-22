@@ -30,18 +30,11 @@ def listado_cursos(request):
         context
     )
 
-def detalles_cursos(request, uuid):
-    print(uuid)
-    cursos = get_cursos()
-    r = None
-
-    for curso in cursos:
-        if str(curso['uuid']) == str(uuid):
-            r = curso
-            break
+def detalles_cursos(request, parametro_uuid):
+    cursos = Cursos.objects.get( uuid=parametro_uuid )
 
     context = {
-        'detalle': r,
+        'detalle': cursos,
     }
 
     return render(
