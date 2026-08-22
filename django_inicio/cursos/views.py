@@ -22,15 +22,15 @@ def listado_cursos(request):
 
 def detalles_cursos(request, parametro_uuid):
 
-    cursos = None
+    _cursos = None
 
     try:
-        cursos = Cursos.objects.get( uuid=parametro_uuid )
+        _cursos = Cursos.objects.get( uuid=parametro_uuid )
     except Cursos.DoesNotExist:
         print( f"El curso no existe {parametro_uuid}" )
 
     context = {
-        'detalle': cursos,
+        'detalle': _cursos,
     }
 
     return render(
