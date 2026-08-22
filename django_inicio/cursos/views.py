@@ -2,6 +2,8 @@ import uuid
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
+from cursos.models import Cursos
+
 # Create your views here.
 from django.http import HttpResponse, JsonResponse
 
@@ -12,7 +14,7 @@ cursos = [
     ]
 
 def get_cursos():
-    return cursos
+    return Cursos.objects.all()
 
 def listado_cursos(request):
     cursos = get_cursos()
