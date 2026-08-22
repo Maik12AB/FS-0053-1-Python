@@ -10,7 +10,7 @@ class Cursos(models.Model):
         default=uuid.uuid4
     )
 
-    nombre = models.CharField( max_length=100 )
+    nombre = models.CharField( max_length=150 )
 
     def __str__(self) -> str:
         return self.nombre
