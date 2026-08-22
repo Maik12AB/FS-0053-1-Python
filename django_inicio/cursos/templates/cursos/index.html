@@ -28,6 +28,8 @@
     </div>
 
     <div class="card-body">
+        {% if cursos %}
+
         <input
             type="text"
             id="indexBuscarCurso"
@@ -52,11 +54,24 @@
                             <a href="/cursos/{{ curso.uuid }}">
                                 Detalle
                             </a>
+                            <br>
+                            <a href="/cursos/{{ curso.uuid }}/editar/">
+                                Editar
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+
+        {% else %}
+
+        <div class="alert alert-warning">
+            No existen cursos registrados
+        </div>
+
+        {% endif %}
+
     </div>
 </div>
 {% endblock %}
